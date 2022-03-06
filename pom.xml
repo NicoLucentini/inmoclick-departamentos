@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>org.twitter</groupId>
-    <artifactId>InmoclickLotes</artifactId>
+    <artifactId>InmoclickDepartamentos</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
