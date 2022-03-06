@@ -22,7 +22,7 @@ public class InmoclickServiceTest {
     @Test
     public  void testConsumerDepartamentos(){
 
-       List<InmoclickPropiedad> propiedades =  consumer.listLotes();
+       List<InmoclickPropiedad> propiedades =  consumer.listDepartamentos();
        Assert.assertTrue(!propiedades.isEmpty());
     }
 

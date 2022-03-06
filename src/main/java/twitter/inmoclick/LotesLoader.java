@@ -8,7 +8,7 @@ class LotesLoader extends Thread {
     @Autowired
     private InmoclickConsumer asdconsumer;
     public void run() {
-        asdconsumer.listLotes();
+        asdconsumer.listDepartamentos();
         System.out.println("This code is running in a thread");
     }
 }

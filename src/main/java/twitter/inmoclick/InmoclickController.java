@@ -12,9 +12,9 @@ public class InmoclickController {
     private InmoclickConsumer consumer;
 
     @GetMapping("/list")
-    public ResponseEntity listLotes(){
+    public ResponseEntity listDepartamentos(){
         try {
-            var res = consumer.lotes;
+            var res = consumer.departamentos;
             return  ResponseEntity.status(200).body(res);
         }
         catch (Exception e){
