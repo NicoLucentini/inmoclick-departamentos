@@ -23,6 +23,9 @@ public class InmoclickConsumer {
 
     public void LoadValues(){
 
+        //Por si acaso limpio
+        departamentos.clear();
+
         long start1 = System.currentTimeMillis();
         System.out.println("Start loading values");
         departamentos = listDepartamentos();
@@ -105,5 +108,53 @@ public class InmoclickConsumer {
         return consumePage(urlDepartamentos);
     }
 
+    public List<InmoclickPropiedad> getRemoveds(List<InmoclickPropiedad> oldProperties){
+        List<InmoclickPropiedad> removeds = new ArrayList<>();
+
+        //Las removidas son las que antes estaban el old y ya no estan mas en new
+        boolean hasToAdd = true;
+        for(InmoclickPropiedad old :oldProperties){
+            hasToAdd = true;
+            for(InmoclickPropiedad newOne : departamentos)
+            {
+                //Significa que sigue estando la propiedad
+                if(old.isEqual(newOne))
+                {
+
+                    hasToAdd = false;
+                    break;
+                }
+            }
+
+            if(hasToAdd)
+                removeds.add(old);
+        }
+        return removeds;
+    }
+
+    public List<InmoclickPropiedad> getNewOnes(List<InmoclickPropiedad> oldProperties){
+        List<InmoclickPropiedad> newOnes = new ArrayList<>();
+
+        //Las nuevas son las que estan en departamentos pero que no estaban en oldProperties
+
+        boolean hasToAdd = true;
+        for(InmoclickPropiedad newOne : departamentos)
+        {
+            hasToAdd = true;
+            for(InmoclickPropiedad old :oldProperties){
+            //Significa que sigue estando la propiedad
+                if(old.isEqual(newOne)) {
+                    System.out.println("Entro al break");
+                    hasToAdd = false;
+                    break;
+                }
+            }
+            if(hasToAdd) {
+                System.out.println("Agrego con id " + newOne.id);
+                newOnes.add(newOne);
+            }
+        }
+        return newOnes;
+    }
 
 }

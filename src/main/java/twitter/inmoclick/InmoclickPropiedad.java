@@ -1,11 +1,12 @@
 package twitter.inmoclick;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class InmoclickPropiedad implements Serializable {
 
     public InmoclickPropiedad(){}
+
+    public Long id;
 
     public Integer propiedad_id;
     public String nombre;
@@ -22,4 +23,8 @@ public class InmoclickPropiedad implements Serializable {
     public String dormitorios;
     public Integer prp_pre_dol;
     public Integer oportunidad_dolares;
+
+    public boolean isEqual(InmoclickPropiedad other){
+       return this.id.equals(other.id);
+    }
 }
